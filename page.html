@@ -1,0 +1,49 @@
+<html ng-app = "addressBook">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-controller= "addressBookController">
+<script>
+var addressBook = angular.module("addressBook", []);
+addressBook.controller("addressBookController", function($scope){
+  $scope.addressInformation= [{'name': 'John Smith', 'address': '1430 Fashion Island Blvd', 'phone': '4086400912'}, {'name': 'Jane Doe', 'address': '1500 Fashion Island Blvd', 'phone': '6695670932'}, {'name': 'Johny Smith', 'address': '1800 Fashion Island Blvd', 'phone': '2567651289'}];
+$scope.addRow = function(){
+  $scope.addressInformation.push({'name': $scope.name, 'address': $scope.address, 'phone': $scope.phone});
+  $scope.name='';
+	$scope.address='';
+	$scope.phone='';
+}
+$scope.addRow = function(){
+  $scope.addressInformation.push({'name': $scope.name, 'address': $scope.address, 'phone': $scope.phone});
+  $scope.name = '';
+  $scope.address = '';
+  $scope.phone = '';
+}
+});
+</script>
+  <label>Search: <input ng-model="searchText"></label>
+  <table class="table">
+  	<tr>
+  		<th>Name
+  		</th>
+  		<th>Address
+  		</th>
+  		<th>Phone Number
+  		</th>
+  	</tr>
+  	<tr ng-repeat="addressInformation in addressInformation | filter: searchText">
+  		<td>{{addressInformation.name}}
+  		</td>
+  		<td>{{addressInformation.address}}
+  		</td>
+  		<td>{{addressInformation.phone}}
+  		</td>
+  	</tr>
+  </table>
+
+  <form ng-submit= "addRow()">
+    <input type="text" name="name" ng-model= "name">
+    <input type="text" name="address" ng-model= "address">
+    <input type="text" name="phone" ng-model= "phone">
+    <input type="submit" name="addBtn" value="Submit">
+  </form>
+</body>
+</html>

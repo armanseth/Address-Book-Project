@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controller.js"></script>
+   <script src="jQuery.resizableColumns.js"></script>
+    <link rel="stylesheet" type="text/css" href="addressBookFormat.css" />
+</head>
+<body ng-app="addressBook" ng-controller= "addressBookController">
+<label>Search: <input ng-model="searchText"></label>
+<table class="ex">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone Number
+            </th>
+        </tr>
+    </thead>
+    <tr ng-repeat="addressInformation in addressInformation | filter: searchText">
+        <td><div>{{addressInformation.name}}</div></td>
+        <td><div>{{addressInformation.address}}</div></td>
+        <td><div>{{addressInformation.phone}}</div></td>
+    </tr>
+</table>
+
+<form ng-submit="addRow()">
+    <input type="text" name="name" ng-model="name">
+    <input type="text" name="address" ng-model="address">
+    <input type="text" name="phone" ng-model="phone">
+    <input type="submit" name="addBtn" value="Add">
+</form>
+</body>
+</html>

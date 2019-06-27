@@ -1,0 +1,16 @@
+{
+    "name": "improvedAddressBook",
+    "version": "0.5",
+    "description": "Address Book made with AngularJS",
+    "main": "app.js",
+    "scripts": {
+        "test": "jest"
+    },
+    ""
+
+
+    "compilerOptions": {
+        "module": "app.js",
+        "types": ["jest"]
+    }
+}
